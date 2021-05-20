@@ -31,40 +31,39 @@ def get_users():
 
 @app.route('/deleteUser')
 def delete_user():
-    data = request.values.to_dict().keys()[0]
-    data = json.loads(data)
+    data = request.args
+
     found_user = UserModel.query.filter_by(name=data.get('name','')).first()
 
     if found_user is not None:
-        found_user.name = ''
+        db.session.delete(found_user)
         db.session.commit()
-        return {'status': 'Updated'}
+        return json.dumps({'status': 'Updated'})
 
-    return {'status':'not found'}
+    return json.dumps({'status':'not found'})
 
 @app.route('/updateUser')
 def update_user():
-    data = request.values.to_dict().keys()[0]
-    data = json.loads(data)
+    data = request.args
 
     found_user = UserModel.query.filter_by(name=data.get('name','')).first()
 
     if found_user is not None:
         found_user.name = ''
         db.session.commit()
-        return {'status': 'Updated'}
-    return {'status': 'not found'}
+
+        return json.dumps({'status': 'Updated'})
+    return json.dumps({'status': 'not found'})
 
 @app.route("/create", methods=["POST"])
 def add_user():
-    data = request.values.to_dict().keys()[0]
-    data = json.loads(data)
+    data = request.args
 
-    new_user = UserModel(name=data.get('name'))
+    new_user = UserModel(name=data.get('name',''))
     db.session.add(new_user)
 
     db.session.commit()
-    return new_user.toJson()
+    return json.dumps(new_user.toJson())
 
 
 

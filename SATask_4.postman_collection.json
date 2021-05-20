@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "566c2f24-a764-44f3-b2f9-fa72637cf190",
+		"name": "SATask_4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sa.flask/getAll",
+					"protocol": "http",
+					"host": [
+						"sa",
+						"flask"
+					],
+					"path": [
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://sa.flask/create?name=Sam",
+					"protocol": "http",
+					"host": [
+						"sa",
+						"flask"
+					],
+					"path": [
+						"create"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Sam"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sa.flask/deleteUser?name=Sam",
+					"protocol": "http",
+					"host": [
+						"sa",
+						"flask"
+					],
+					"path": [
+						"deleteUser"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Sam"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sa.flask/updateUser?name=Sample",
+					"protocol": "http",
+					"host": [
+						"sa",
+						"flask"
+					],
+					"path": [
+						"updateUser"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Sample"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
