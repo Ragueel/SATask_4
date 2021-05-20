@@ -4,7 +4,7 @@ from sqlalchemy.dialects.postgresql import JSON
 import json
 import os
 
-DB_ADDRESS = os.environ.get('DB_ADDRESS', '192.168.99.100:31792')
+DB_ADDRESS = os.environ.get('DB_ADDRESS', 'sa.database:31792')
 DB_PASSWORD = os.environ.get('DB_PASSWORD', 'master-password')
 
 app = Flask(__name__)
